@@ -1,4 +1,6 @@
+### 📄 `GIT_TIPS.md`
 
+```markdown
 # 📘 Git Tips
 
 ## 📌 Comandos Básicos do Git e GitHub
@@ -11,13 +13,14 @@
 - [Gerenciamento de Branches](#gerenciamento-de-branches)
 - [Tags](#tags)
 - [Outros Comandos Úteis](#outros-comandos-úteis)
+- [Jornada Git + GitHub no VS Code](#jornada-git--github-no-vs-code)
 <!--te-->
 
 ---
 
 ## 🔧 Antes de Começar
 
-1. Vá até a pasta onde deseja clonar o projeto.
+1. Vá até a pasta onde deseja clonar ou iniciar o projeto.
 2. Abra o terminal dentro dessa pasta.
 
 ---
@@ -191,3 +194,139 @@ git branch -m main
 git push -f origin main
 ```
 
+---
+
+## 🚀 Jornada Git + GitHub no VS Code
+
+### 📁 1. Criar Projeto Localmente
+
+```bash
+mkdir nome-do-projeto
+cd nome-do-projeto
+code .
+```
+
+> O comando `code .` abre o VS Code diretamente na pasta.
+
+---
+
+### 🛠️ 2. Inicializar Git no projeto
+
+```bash
+git init
+```
+
+---
+
+### ⚙️ 3. Configurar seu usuário (caso ainda não tenha feito)
+
+```bash
+git config --global user.name "Seu Nome"
+git config --global user.email "seu@email.com"
+```
+
+---
+
+### 📄 4. Criar o primeiro arquivo (ex: README)
+
+```bash
+echo "# Meu Projeto" > README.md
+```
+
+---
+
+### ➕ 5. Adicionar os arquivos ao Git
+
+```bash
+git add .
+```
+
+---
+
+### 📝 6. Fazer o primeiro commit
+
+```bash
+git commit -m "primeiro commit"
+```
+
+---
+
+### 🌐 7. Criar um repositório no GitHub
+
+- Acesse [https://github.com](https://github.com)
+- Clique em "New Repository"
+- Dê um nome ao repositório (ex: `meu-projeto`)
+- Não selecione nenhum template/README
+- Clique em "Create repository"
+
+---
+
+### 🔗 8. Conectar repositório local ao GitHub
+
+```bash
+# HTTPS
+git remote add origin https://github.com/seuusuario/meu-projeto.git
+
+# ou via SSH
+git remote add origin git@github.com:seuusuario/meu-projeto.git
+```
+
+---
+
+### ☁️ 9. Enviar o projeto local para o GitHub
+
+```bash
+git branch -M main
+git push -u origin main
+```
+
+---
+
+### 🔄 10. Clonar um projeto existente do GitHub
+
+```bash
+git clone https://github.com/usuario/repositorio.git
+cd repositorio
+code .
+```
+
+---
+
+### 🔁 11. Fluxo diário de uso no VS Code
+
+1. Faça alterações nos arquivos.
+2. Use os seguintes comandos no terminal do VS Code:
+
+```bash
+git status                    # Verificar alterações
+git add .                     # Adicionar todas as mudanças
+git commit -m "descrição"     # Criar commit
+git pull origin main          # Puxar alterações mais recentes
+git push origin main          # Enviar alterações
+```
+
+---
+
+### ✅ Dica final
+
+Use a aba **Source Control** (Ctrl+Shift+G) no VS Code para gerenciar seus commits de forma visual.  
+Mas lembre-se: o terminal sempre será seu melhor aliado!
+
+---
+
+## 🧠 Recomendações Finais
+
+- Sempre use `git pull` antes de começar a trabalhar para evitar conflitos.
+- Crie branches para funcionalidades novas (`feature/nome`).
+- Prefira commits pequenos e com mensagens claras.
+- Faça `push` com frequência para evitar perda de progresso.
+- Evite resolver conflitos direto no GitHub, prefira o VS Code.
+
+---
+
+## 💡 Sugestão de nome para este repositório
+
+**`git-cheatsheet-br`**  
+> Um guia simples, direto e em português com os principais comandos do Git e GitHub.
+
+```
