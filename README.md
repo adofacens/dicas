@@ -16,6 +16,7 @@
 - [Jornada Git + GitHub no VS Code](#jornada-git--github-no-vs-code)
 <!--te-->
 
+---
 
 ## 🔧 Antes de Começar
 
