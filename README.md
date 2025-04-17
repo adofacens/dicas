@@ -1,184 +1,193 @@
-# Git_Tips
 
-# Comandos básicos Git e Github
+# 📘 Git Tips
 
-## Sumário
+## 📌 Comandos Básicos do Git e GitHub
+
+### Sumário
 
 <!--ts-->
-
-- [Principais Comandos do Git](#-principais-comandos-do-git-)
+- [Antes de Começar](#antes-de-começar)
+- [Principais Comandos do Git](#principais-comandos-do-git)
+- [Gerenciamento de Branches](#gerenciamento-de-branches)
+- [Tags](#tags)
+- [Outros Comandos Úteis](#outros-comandos-úteis)
 <!--te-->
 
-## Antes de iniciar este procedimento
-## Vá até uma pasta onde deseja clonar o projeto escolhido
+---
 
-## 👑 Principais comandos do GIT 👑
+## 🔧 Antes de Começar
 
-### Definindo o nome de usuário
+1. Vá até a pasta onde deseja clonar o projeto.
+2. Abra o terminal dentro dessa pasta.
+
+---
+
+## 👑 Principais Comandos do Git
+
+### Configuração Inicial
 
 ```bash
-git config --global user.name “seu nome”
-```
-
-### Definindo o email do usuário
-
-```bash
-git config --global user.email “seu email”
+git config --global user.name "Seu Nome"
+git config --global user.email "seu@email.com"
 ```
 
 ### Clonar Repositório
 
 ```bash
-git clone -b <branch> <remote_repo>
+git clone -b <branch> <URL_do_repositório>
 ```
 
-### Listar pastas criadas
+### Acessar a pasta do projeto
 
 ```bash
-ls
+cd <nome_da_pasta>
 ```
 
-### Entrar na pasta criada, conforme o nome do [ Projeto Atual ]
-
-```bash
-cd <nome da pasta>
-```
-
-### Inicializa o repositório
+### Inicializar Repositório Git (caso necessário)
 
 ```bash
 git init
 ```
 
-### Verifica se houve alterações / estado dos arquivos
+### Verificar o estado dos arquivos
 
 ```bash
 git status
 ```
 
-### Verifica se o diretório remoto foi instalado
+### Adicionar arquivos à *staging area*
+
+```bash
+git add .
+# ou para adicionar arquivos específicos
+git add nome_do_arquivo
+```
+
+### Fazer Commit
+
+```bash
+git commit -m "mensagem do commit"
+```
+
+### Verificar repositório remoto
 
 ```bash
 git remote -v
 ```
-### >>> Caso não retorne nenhum informação execute o comando abaixo:
 
-### Informar a pasta remota (Via HTTPS):
-
-(lembre-se de copiar no botão verde [ Code ] na página do projeto no GitHub)
+### Adicionar repositório remoto (HTTPS ou SSH)
 
 ```bash
-git remote add origin <link do projeto>
+# Via HTTPS
+git remote add origin https://github.com/usuario/repositorio.git
+
+# Via SSH
+git remote add origin git@github.com:usuario/repositorio.git
 ```
 
-### Puxar atualizações do Projeto > Lembrar de clicar em > Commit Behind no GitHub (Página) antes de executar o comando abaixo.
+### Puxar alterações do repositório remoto
 
 ```bash
 git pull origin main
 ```
 
-### Coloca o arquivo em Staging > Antes de Commit
-
-```bash
-git add .
-```
-
-### Realiza o Commit
-
-```bash
-git commit -m "update <versão do projeto> <nome do projeto>"
-```
-
-### Enviar atualizações do Projeto > Lembrar de clicar em > Commit Ahead no GitHub (Página), após executar o comando abaixo.
+### Enviar alterações para o repositório remoto
 
 ```bash
 git push origin main
 ```
 
-### Informar a pasta remota (Via HTTPS):
-
-(lembre-se de trocar o usuário no comando)
+### Forçar push inicial (caso necessário)
 
 ```bash
-git remote add origin https://github.com/adosilva/senai-versoes-colaboracoes.git
-```
-
-### Informar a pasta remota (Via SSH):
-
-(lembre-se de trocar o usuário no comando)
-
-```bash
-git remote add origin git@github.com:adosilva/senai-versoes-colaboracoes.git
-```
-
-### Visualizar o repositório remoto:
-
-```bash
-git remote –v
-```
-
-### Alterar o nome da branch principal de Master para Main (isso é uma boa prática atualmente recomendada)
-
-```bash
-git branch -M "main"
-```
-
-### Resolvendo o erro "fatal: refusing to merge unrelated histories"...
-
-```bash
-git pull origin main --allow-unrelated-histories
-```
-
-```bash
-git pull --allow-unrelated-histories origin main
 git push -u origin main
 ```
 
-### Realiza o envio dos commits para o branch main
+---
+
+## 🌿 Gerenciamento de Branches
+
+### Alterar nome da branch principal para `main`
 
 ```bash
-git push origin main
+git branch -M main
 ```
 
-### Baixar a alteração feita no repositório remoto:
+### Criar nova branch
 
 ```bash
-git pull
+git checkout -b nome-da-branch
 ```
 
-### Cria uma tag
+### Mudar para uma branch existente
 
 ```bash
-git tag -a <nome da tag> -m <comentário>
+git checkout nome-da-branch
 ```
 
-### Realiza o envio das Tags para o repositório remoto
+### Enviar nova branch para o remoto
+
+```bash
+git push origin nome-da-branch
+```
+
+### Fazer merge de outra branch
+
+```bash
+git merge nome-da-branch
+```
+
+---
+
+## 🏷️ Tags
+
+### Criar uma tag
+
+```bash
+git tag -a <nome-da-tag> -m "comentário"
+```
+
+### Enviar tags para o repositório remoto
 
 ```bash
 git push origin --tags
 ```
 
-### Muda para a branch main
+---
+
+## 🛠️ Outros Comandos Úteis
+
+### Resolver erro: `fatal: refusing to merge unrelated histories`
 
 ```bash
-git checkout main
+git pull origin main --allow-unrelated-histories
 ```
 
-### Cria uma nova branch
+### Baixar atualizações do repositório remoto
 
 ```bash
-git checkout -b nome-branch
+git pull
 ```
 
-### Realiza o envio dos commits para a nova branch
+### Redefinir histórico do projeto (limpar commits anteriores)
 
 ```bash
-git push origin nome-branch
-```
+# Criar nova branch órfã
+git checkout --orphan new_branch
 
-### Faz a mesclagem com outra branch
+# Adicionar todos os arquivos
+git add -A
 
-```bash
-git merge origin nome-branch
+# Fazer um commit "limpo"
+git commit -m "limpando commits anteriores"
+
+# Excluir a branch antiga
+git branch -D main
+
+# Renomear nova branch para main
+git branch -m main
+
+# Forçar push para o repositório remoto
+git push -f origin main
 ```
 
