@@ -14,7 +14,7 @@
 - [Tags](#tags)
 - [Outros Comandos Úteis](#outros-comandos-úteis)
 - [Jornada Git + GitHub no VS Code](#jornada-git--github-no-vs-code)
-<!--ts-->
+<!--te-->
 
 
 ## 🔧 Antes de Começar
